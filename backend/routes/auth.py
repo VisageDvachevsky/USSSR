@@ -3,8 +3,8 @@ Authentication API routes
 """
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from ..services.auth_service import AuthService
-from ..middleware.decorators import rate_limit
+from services.auth_service import AuthService
+from middleware.decorators import rate_limit
 import logging
 
 logger = logging.getLogger(__name__)

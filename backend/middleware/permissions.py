@@ -4,7 +4,7 @@ Permission checking decorators
 from functools import wraps
 from flask import jsonify
 from flask_jwt_extended import get_jwt_identity
-from ..services.auth_service import AuthService
+from services.auth_service import AuthService
 
 
 def admin_required(f):

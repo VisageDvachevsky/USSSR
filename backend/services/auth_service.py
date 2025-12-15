@@ -5,8 +5,8 @@ import logging
 from datetime import datetime, timedelta
 from typing import Optional, Dict
 from flask_jwt_extended import create_access_token, create_refresh_token
-from ..models.user import User, Role
-from ..models.base import db
+from models.user import User, Role
+from models.base import db
 
 logger = logging.getLogger(__name__)
 

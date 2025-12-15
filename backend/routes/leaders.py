@@ -3,10 +3,10 @@ Leaders API routes
 """
 from flask import Blueprint, jsonify, request, current_app
 from flask_jwt_extended import jwt_required, get_jwt_identity, jwt_required
-from ..models.leader import Leader
-from ..models.activity import ActivityLog
-from ..services.ai_service import EnhancedAIService
-from ..middleware.decorators import rate_limit, cache_response
+from models.leader import Leader
+from models.activity import ActivityLog
+from services.ai_service import EnhancedAIService
+from middleware.decorators import rate_limit, cache_response
 import logging
 
 logger = logging.getLogger(__name__)
@@ -216,12 +216,12 @@ def get_recommendations(leader_id):
 @rate_limit("10 per hour")
 def create_leader():
     """Create a new leader (admin only)"""
-    from ..middleware.permissions import admin_required
+    from middleware.permissions import admin_required
 
     try:
         # Check admin permission
         current_user_id = get_jwt_identity()
-        from ..services.auth_service import AuthService
+        from services.auth_service import AuthService
         user = AuthService.get_user_by_id(current_user_id)
 
         if not user or not user.has_permission('create_leaders'):
