@@ -101,9 +101,7 @@
     animation-delay: calc(var(--card-index, 0) * 0.1s);
 }
 
-.leader-card:hover {
-    animation: pulse 0.5s ease-in-out;
-}
+/* Removed conflicting pulse animation on hover - using transition instead */
 
 /* Smooth hover effects */
 .btn {
